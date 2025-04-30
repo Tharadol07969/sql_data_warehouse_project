@@ -3,58 +3,66 @@
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-0078D7?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-## 📖 Overview
-This repository implements a **Medallion Architecture** on SQL Server, guiding raw data from ingestion through cleansing to analytics-ready marts.  
-It comprises three layers:
-- **🥉 Bronze**: Raw, unaltered source tables  
-- **🥈 Silver**: Cleansed, conformed, and enriched datasets  
-- **🥇 Gold**: Curated fact tables and dimensions optimized for BI  
+This project is building Medallion-architecture Data Warehouse built in SQL, with three layers:
+- **Bronze**: Raw data ingestion
+- **Silver**: Cleansed & conformed data
+- **Gold**: Business-ready fact and dimension tables
 
-Built-in data quality checks and clear separation of layers ensure maintainability, scalability, and high data integrity.
 
 ---
 
-## 📐 Project Architecture
+### 📐 Project Architecture
 ![Project Architecture](docs/project_architecture.jpg)  
 *Three-stage pipeline—Bronze ingestion, Silver transformations, Gold consumption.*
 
 ---
 
-## 🔄 Data Flow
+### 🔄 Data Flow
 ![Data Flow](docs/data_flow.jpg)  
 *End-to-end ETL from source CSVs through SQL procedures to downstream marts.*
 
 ---
 
-## 🔗 Data Integration
+### 🔗 Data Integration
 ![Data Integration](docs/data_integration.jpg)  
 *Integration of multiple source systems (CRM & ERP) into a unified Bronze zone.*
 
 ---
 
-## 🗺️ Data Model
+### 🗺️ Data Model
 ![Data Model](docs/data_model.jpg)  
 *Star-schema design for Gold layer, enabling performant analytics.*
 
 ---
 
 ## 📑 Table of Contents
-1. [Overview](#%F0%9F%93%96-overview)  
-2. [Project Structure](#%F0%9F%93%92-project-structure)  
-3. [Data Sources](#%F0%9F%97%83-data-sources)  
-4. [Bronze Layer](#🥉-bronze-layer)  
-   - [DDL Scripts](#bronze-layer-ddl-scripts)  
-   - [Ingestion Procedures](#bronze-layer-ingestion-procedures)  
-5. [Silver Layer](#🥈-silver-layer)  
-   - [DDL Scripts](#silver-layer-ddl-scripts)  
-   - [Transformation Procedures](#silver-layer-transformation-procedures)  
-6. [Gold Layer](#🥇-gold-layer)  
-   - [DDL Scripts](#gold-layer-ddl-scripts)  
-7. [Data Quality & Testing](#✅-data-quality--testing)  
-8. [Deployment & Usage](#🚀-deployment--usage)  
-9. [Future Enhancements](#🔮-future-enhancements)  
-10. [References](#📚-references)  
-11. [License](#🛡️-license)  
+1. [📖 Overview](#-overview)
+2. [📂 Project Structure](#-project-structure)
+3. [🗃️ Data Sources](#%EF%B8%8F-data-sources)
+4. [🥉 Bronze Layer](#-bronze-layer)
+   - [Bronze Layer DDL Scripts](#bronze-layer-ddl-scripts)
+   - [Bronze Layer Ingestion Procedures](#bronze-layer-ingestion-procedures)
+5. [🥈 Silver Layer](#-silver-layer)
+   - [Silver Layer DDL Scripts](#silver-layer-ddl-scripts)
+   - [Silver Layer Transformation Procedures](#silver-layer-transformation-procedures)
+6. [🥇 Gold Layer](#-gold-layer)
+   - [Gold Layer DDL Scripts](#gold-layer-ddl-scripts)
+7. [✅ Data Quality & Testing](#-data-quality--testing)
+8. [🚀 Deployment & Usage](#-deployment--usage)
+9. [🔮 Future Enhancements](#-future-enhancements)
+10. [📚 References](#-references)
+11. [🛡️ License](#%EF%B8%8F-license)
+
+---
+
+## 📖 Overview
+This repository implements a **Medallion Architecture** on SQL Server, guiding raw data from ingestion through cleansing to analytics-ready marts.  
+It comprises three layers:
+- **🥉 Bronze**: Raw, unaltered source tables  
+- **🥈 Silver**: Cleansed, conformed, and enriched datasets  
+- **🥇 Gold**: Curated fact tables and dimensions optimized for BI
+
+Built-in data quality checks and clear separation of layers ensure maintainability, scalability, and high data integrity.
 
 ---
 
@@ -63,7 +71,7 @@ Built-in data quality checks and clear separation of layers ensure maintainabili
 sql_medallion_data_warehouse_project/
 │
 ├── datasets/
-│   ├── source_crm/                   # raw CSV files from CRM system
+│   ├── source_crm/                    # raw CSV files from CRM system
 │         ├── cust_info.csv
 │         ├── prd_info.csv
 │         └── sales_details.csv
@@ -73,22 +81,22 @@ sql_medallion_data_warehouse_project/
 │         └── px_cat_g1v2.csv
 │
 ├── doc/
-│   ├── data_catalog.md                   # Data catalog for gold layer
+│   ├── data_catalog.md                      # Data catalog for gold layer
 │   ├── data_flow.jpg                        # Data flow diagram
-│   ├── data_integration.jpg             # Data integration diagram
-│   ├── data_model.jpg                     # Data model diagram for gold layer
-│   └── project_architecture.jpg      # Project architecture design
+│   ├── data_integration.jpg                 # Data integration diagram
+│   ├── data_model.jpg                       # Data model diagram for gold layer
+│   └── project_architecture.jpg             # Project architecture design
 │
 ├── scripts/
-│   └── bronze/                                       # Bronze layer scripts
+│   └── bronze/                                      # Bronze layer scripts
 │         ├── ddl_bronze.sql                         # DDL Bronze layer scripts
-│         └── proc_load_bronze.sql            # Procedure Bronze layer scripts
-│   └── gold/                                           # Gold layer scripts
-│         └── ddl_gold.sql                             # Create Gold views scripts
-│   └── silver/                                         # Silver layer scripts
-│         ├── ddl_silver.sql                           # DDL Silver layer scripts
-│         └── proc_load_silver.sql              # Procedure Silver layer scripts
-│   └── init_database.sql                     # Create database script
+│         └── proc_load_bronze.sql                   # Procedure Bronze layer scripts
+│   └── gold/                                        # Gold layer scripts
+│         └── ddl_gold.sql                           # Create Gold views scripts
+│   └── silver/                                      # Silver layer scripts
+│         ├── ddl_silver.sql                         # DDL Silver layer scripts
+│         └── proc_load_silver.sql                   # Procedure Silver layer scripts
+│   └── init_database.sql                            # Create database script
 │
 ├── tests/
 │   ├── quality_check_gold.sql                  # SQL tests for Gold layer
