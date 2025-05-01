@@ -48,4 +48,4 @@ LEFT JOIN gold.dim_customers dc
 ON dc.customer_key = fs.customer_key
 LEFT JOIN gold.dim_products dp
 ON dp.product_key = fs.product_key
-WHERE dp.product_key IS NULL OR dc.customer_key IS NULL  
+WHERE dp.product_key IS NULL OR dc.customer_key IS NULL;  
